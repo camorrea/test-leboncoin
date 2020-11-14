@@ -25,6 +25,7 @@ const Form = ({ postMessage }: { postMessage: any }) => {
     (event) => {
       event.preventDefault()
       postMessage(message, isPrivate)
+      setMessage('')
     },
     [message, isPrivate]
   )

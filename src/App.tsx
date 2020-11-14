@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { createGlobalStyle } from 'styled-components'
-import { Confidentiality } from './types'
 import { Container, Wrapper } from './components/Container'
-import Toggle, { ToggleContainer, ToggleLabel } from './components/Form/Toggle'
+import Form from './components/Form'
 import List from './components/Messages/List'
+import { Confidentiality, MessageType } from './types'
 
 const GlobalStyle = createGlobalStyle`
   *, *:after, *:before {
@@ -39,36 +39,44 @@ const GlobalStyle = createGlobalStyle`
 `
 
 const App = () => {
-  const [messages, setMessages] = useState([])
+  const [messages, setMessages] = useState<MessageType[]>([])
+  const [hasUnreadMessage, setHasUnreadMessage] = useState(false)
 
   useEffect(() => {
     const fetchData = async () => {
-      const result = await axios('http://localhost:3001/posts')
-
+      const result = await axios('http://localhost:3001/messages')
       setMessages(result.data)
     }
 
     fetchData()
   }, [])
 
+  const postMessage = (text: string, isPrivate: boolean) => {
+    const messageToPost: MessageType = {
+      id: Math.random().toString(36).substring(7),
+      text,
+      confidentiality: isPrivate
+        ? Confidentiality.private
+        : Confidentiality.public
+    }
+
+    messages.push(messageToPost)
+
+    setMessages(messages)
+    setHasUnreadMessage(true)
+  }
+
   return (
     <React.Fragment>
       <GlobalStyle />
       <Wrapper>
         <Container>
-          <ul>
-            {messages.map((item: any) => (
-              <li key={item.objectID}>
-                <a href={item.url}>{item.title}</a>
-              </li>
-            ))}
-          </ul>
-          <List />
-          <ToggleContainer>
-            <ToggleLabel>{Confidentiality.public}</ToggleLabel>
-            <Toggle onChange={() => console.log('truc')} />
-            <ToggleLabel>{Confidentiality.private}</ToggleLabel>
-          </ToggleContainer>
+          <List
+            hasUnreadMessage={hasUnreadMessage}
+            setHasUnreadMessage={setHasUnreadMessage}
+            messages={messages}
+          />
+          <Form postMessage={postMessage} />
         </Container>
       </Wrapper>
     </React.Fragment>

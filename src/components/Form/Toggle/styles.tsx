@@ -6,14 +6,12 @@ const TRANSLATION_RIGHT = WIDTH - HEIGHT
 
 export const StyledToggleContainer = styled.div`
   display: flex;
-  padding-left: 0.5rem;
 `
 
 export const StyledToggleLabel = styled.div`
   padding: 0 0.5rem;
-  color: #222222;
+  color: #333333;
   font-size: 0.8rem;
-  font-family: 'arial';
 `
 
 export const Container = styled.div`

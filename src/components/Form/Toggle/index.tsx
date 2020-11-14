@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react'
+import React, { useCallback } from 'react'
 
 import {
   Background,
@@ -20,28 +20,22 @@ export const ToggleContainer = StyledToggleContainer
 export const ToggleLabel = StyledToggleLabel
 
 const Toggle = (props: Props) => {
-  const { className, checked, onChange, disabled } = props
+  const { checked, onChange, disabled } = props
 
-  const [isChecked, setIsChecked] = useState(props.checked || false)
-
-  useEffect(() => {
-    setIsChecked(props.checked || false)
-  }, [props.checked])
-
-  const handleChange = useCallback<React.ChangeEventHandler<HTMLInputElement>>(
-    (event) => {
-      setIsChecked(event.target.checked)
-      if (onChange && !disabled) onChange(event)
-    },
-    [onChange, disabled]
-  )
+  const handleChange = useCallback(() => {
+    if (onChange && !disabled) onChange()
+  }, [onChange, disabled])
 
   return (
-    <Container className={className}>
-      <Background checked={isChecked} disabled={disabled}>
-        <Switch checked={isChecked} disabled={disabled} />
+    <Container>
+      <Background checked={checked} disabled={disabled}>
+        <Switch checked={checked} disabled={disabled} />
       </Background>
-      <HiddenCheckbox {...{ checked, onChange: handleChange, disabled }} />
+      <HiddenCheckbox
+        checked={checked}
+        disabled={disabled}
+        onChange={handleChange}
+      />
     </Container>
   )
 }

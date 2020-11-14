@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const Container = styled.div`
+export const Container = styled.form`
   height: 10rem;
   padding: 0.85rem;
 `

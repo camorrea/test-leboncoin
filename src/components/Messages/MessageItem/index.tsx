@@ -14,7 +14,7 @@ const MessageItem = (props: Props) => {
     <Container confidentiality={message.confidentiality}>
       <Text>{message.text}</Text>
       {message.confidentiality === Confidentiality.private && (
-        <IconContainer title={message.confidentiality}>
+        <IconContainer title="⚠️ this message is private">
           <PrivateIcon />
         </IconContainer>
       )}

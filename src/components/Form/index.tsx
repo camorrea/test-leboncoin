@@ -21,12 +21,16 @@ const Form = ({ postMessage }: { postMessage: any }) => {
     setIsPrivate(!isPrivate)
   }, [isPrivate])
 
-  const handlePostMessage = useCallback(() => {
-    postMessage(message, isPrivate)
-  }, [message, isPrivate])
+  const handlePostMessage = useCallback(
+    (event) => {
+      event.preventDefault()
+      postMessage(message, isPrivate)
+    },
+    [message, isPrivate]
+  )
 
   return (
-    <Container>
+    <Container onSubmit={handlePostMessage}>
       <Title>Post message</Title>
       <Input
         autoFocus={true}

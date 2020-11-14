@@ -1,0 +1,9 @@
+# OS boring files
+.DS_Store
+.vscode
+
+# Dependency directories
+node_modules/
+
+# Build
+dist

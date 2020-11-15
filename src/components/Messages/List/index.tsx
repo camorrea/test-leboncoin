@@ -1,8 +1,14 @@
-import React, { useCallback, useLayoutEffect, useRef, useState } from 'react'
+import React, {
+  useCallback,
+  useLayoutEffect,
+  useMemo,
+  useRef,
+  useState
+} from 'react'
 import { Confidentiality, MessageType } from '../../../types'
 import MessageItem from '../MessageItem'
 import Toggle, { ToggleContainer, ToggleLabel } from '../../Form/Toggle'
-import { Title, TitleContainer } from './styles'
+import { ArrowIcon, ScrollDown, Title, TitleContainer } from './styles'
 
 type Props = {
   messages: MessageType[]
@@ -32,11 +38,13 @@ const List = ({ hasUnreadMessage, messages, setHasUnreadMessage }: Props) => {
     setHasPrivateFilter(!hasPrivateFilter)
   }, [hasPrivateFilter])
 
-  const filteredMessagesList = hasPrivateFilter
-    ? messages.filter(
-        (message) => message.confidentiality === Confidentiality.public
-      )
-    : messages
+  const filteredMessagesList = useMemo(() => {
+    return hasPrivateFilter
+      ? messages.filter(
+          (message) => message.confidentiality === Confidentiality.public
+        )
+      : messages
+  }, [hasPrivateFilter, messages])
 
   return (
     <React.Fragment>
@@ -56,6 +64,9 @@ const List = ({ hasUnreadMessage, messages, setHasUnreadMessage }: Props) => {
         <MessageItem key={message.id} message={message} />
       ))}
       <div ref={bottomRef}></div>
+      <ScrollDown onClick={() => scrollToBottom()}>
+        <ArrowIcon />
+      </ScrollDown>
     </React.Fragment>
   )
 }

@@ -21,9 +21,7 @@ export const ToggleContainer = StyledToggleContainer
 
 export const ToggleLabel = StyledToggleLabel
 
-const Toggle = (props: Props) => {
-  const { checked, onChange, disabled, label, id } = props
-
+const Toggle = ({ checked, onChange, disabled, label, id }: Props) => {
   const handleChange = useCallback(() => {
     if (onChange && !disabled) onChange()
   }, [onChange, disabled])

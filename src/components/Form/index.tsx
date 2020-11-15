@@ -1,17 +1,20 @@
-import React, { useCallback, useRef, useState } from 'react'
+import React, { useCallback, useState } from 'react'
 import { Confidentiality } from '../../types'
 import { Button } from './Button'
 import Input from './Input'
 import Toggle, { ToggleContainer, ToggleLabel } from './Toggle'
 import { ActionsContainer, Container, HiddenLabel, Title } from './styles'
 
-const Form = ({ postMessage }: { postMessage: any }) => {
-  const postMessageInput = useRef<HTMLInputElement>()
+type Props = {
+  postMessage: (message: string, isPrivate: boolean) => Promise<void>
+}
+
+const Form = ({ postMessage }: Props) => {
   const [message, setMessage] = useState<string>('')
   const [isPrivate, setIsPrivate] = useState<boolean>(false)
 
   const handleSetMessage = useCallback(
-    (event) => {
+    (event: React.ChangeEvent<HTMLInputElement>) => {
       if (message !== event.target.value) setMessage(event.target.value)
     },
     [message]
@@ -22,12 +25,12 @@ const Form = ({ postMessage }: { postMessage: any }) => {
   }, [isPrivate])
 
   const handlePostMessage = useCallback(
-    (event) => {
+    (event: React.MouseEvent<HTMLButtonElement>) => {
       event.preventDefault()
       postMessage(message, isPrivate)
       setMessage('')
     },
-    [message, isPrivate]
+    [message, isPrivate, postMessage]
   )
 
   return (
@@ -38,7 +41,6 @@ const Form = ({ postMessage }: { postMessage: any }) => {
         type="text"
         autoFocus={true}
         autoComplete="off"
-        ref={postMessageInput}
         disabled={false}
         name="message"
         placeholder="Write your message here"

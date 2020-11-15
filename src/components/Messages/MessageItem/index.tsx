@@ -1,24 +1,23 @@
 import React from 'react'
 import { Confidentiality, MessageType } from '../../../types'
-import { Container, IconContainer, PrivateIcon, Text, Wrapper } from './styles'
+import { Container, Content, IconContainer, PrivateIcon, Text } from './styles'
 
 type Props = {
   message: MessageType
 }
 
-const MessageItem = (props: Props) => {
-  const { message } = props
+const MessageItem = ({ message }: Props) => {
   return (
-    <Wrapper user={message.user}>
-      <Container confidentiality={message.confidentiality}>
+    <Container user={message.user}>
+      <Content confidentiality={message.confidentiality}>
         <Text>{message.text}</Text>
         {message.confidentiality === Confidentiality.private && (
           <IconContainer title="⚠️ this message is private">
             <PrivateIcon />
           </IconContainer>
         )}
-      </Container>
-    </Wrapper>
+      </Content>
+    </Container>
   )
 }
 

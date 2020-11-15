@@ -49,13 +49,14 @@ const App = () => {
   const [messages, setMessages] = useState<MessageType[]>([])
   const [hasUnreadMessage, setHasUnreadMessage] = useState<boolean>(false)
   const [dataStatus, setDataStatus] = useState<DataStatus>(DataStatus.notAsked)
+  const [postStatus, setPostStatus] = useState<DataStatus>(DataStatus.notAsked)
 
   useEffect(() => {
     const fetchData = async () => {
       setDataStatus(DataStatus.loading)
       try {
         const result = await axios('http://localhost:3001/messages')
-        await setMessages(result.data)
+        setMessages(result.data)
         setDataStatus(DataStatus.success)
       } catch (err) {
         setDataStatus(DataStatus.failure)
@@ -81,11 +82,13 @@ const App = () => {
         'http://localhost:3001/messages',
         messageToPost
       )
-      await messages.push(result.data)
+      messages.push(result.data)
       setMessages(messages)
+      setPostStatus(DataStatus.success)
       setHasUnreadMessage(true)
     } catch (err) {
-      setDataStatus(DataStatus.failure)
+      setPostStatus(DataStatus.failure)
+      setHasUnreadMessage(true)
       console.error('Unable to post message')
     }
   }
@@ -125,7 +128,12 @@ const App = () => {
       <GlobalStyle />
       <Wrapper>
         <Container>
-          <ListWrapper>{renderList()}</ListWrapper>
+          <ListWrapper>
+            {renderList()}
+            {postStatus === DataStatus.failure && (
+              <Error>Error while posting message 😩</Error>
+            )}
+          </ListWrapper>
           <Form postMessage={postMessage} />
         </Container>
       </Wrapper>

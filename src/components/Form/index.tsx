@@ -3,7 +3,7 @@ import { Confidentiality } from '../../types'
 import { Button } from './Button'
 import Input from './Input'
 import Toggle, { ToggleContainer, ToggleLabel } from './Toggle'
-import { ActionsContainer, Container, Title } from './styles'
+import { ActionsContainer, Container, HiddenLabel, Title } from './styles'
 
 const Form = ({ postMessage }: { postMessage: any }) => {
   const postMessageInput = useRef<HTMLInputElement>()
@@ -33,7 +33,9 @@ const Form = ({ postMessage }: { postMessage: any }) => {
   return (
     <Container onSubmit={handlePostMessage}>
       <Title>Post message</Title>
+      <HiddenLabel for="messageField">Write your message here</HiddenLabel>
       <Input
+        type="text"
         autoFocus={true}
         autoComplete="off"
         ref={postMessageInput}
@@ -42,13 +44,21 @@ const Form = ({ postMessage }: { postMessage: any }) => {
         placeholder="Write your message here"
         value={message}
         onChange={handleSetMessage}
+        id="messageField"
       />
       <ActionsContainer>
         <ToggleContainer>
-          <Toggle checked={isPrivate} onChange={handleToggleConfidentiality} />
+          <Toggle
+            checked={isPrivate}
+            onChange={handleToggleConfidentiality}
+            id="isPrivate"
+            label={Confidentiality.private}
+          />
           <ToggleLabel>{Confidentiality.private}</ToggleLabel>
         </ToggleContainer>
-        <Button onClick={handlePostMessage}>Send</Button>
+        <Button onClick={handlePostMessage} disabled={message === ''}>
+          Send
+        </Button>
       </ActionsContainer>
     </Container>
   )

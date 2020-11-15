@@ -1,6 +1,6 @@
 # test-leboncoin
 
-test-leboncoin is a simple messaging react app
+test-leboncoin is a simple, responsive and accessible messaging react app
 
 `json-server` : fake API
 

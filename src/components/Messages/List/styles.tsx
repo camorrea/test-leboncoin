@@ -13,7 +13,7 @@ export const TitleContainer = styled.div`
   justify-content: space-between;
 `
 
-export const Title = styled.h1`
+export const Title = styled.h3`
   margin-bottom: 0.85rem;
   font-weight: bold;
   font-size: 1.25rem;
@@ -22,8 +22,8 @@ export const Title = styled.h1`
 `
 
 export const ScrollDown = styled.div`
-  position: fixed;
-  right: 1rem;
+  position: absolute;
+  right: 20px;
   top: 70%;
   display: flex;
   align-items: center;
@@ -37,6 +37,7 @@ export const ScrollDown = styled.div`
   transition: all ease 300ms;
 
   @media screen and (min-width: 640px) {
+    position: fixed;
     right: 3rem;
     top: 80%;
   }

@@ -19,8 +19,12 @@ export const Content = styled.div<{ confidentiality: Confidentiality }>`
   width: 85%;
   border-radius: 0.6rem;
   background-color: ${({ confidentiality }) =>
-    confidentiality === Confidentiality.private ? '#444444' : '#0060FF'};
-  color: #ffffff;
+    confidentiality === Confidentiality.public ? '#FFFFFF' : '#444444'};
+  color: ${({ confidentiality }) =>
+    confidentiality === Confidentiality.public ? '#444444' : '#FFFFFF'};
+  border: 1px solid
+    ${({ confidentiality }) =>
+      confidentiality === Confidentiality.public ? '#444444' : '#FFFFFF'};
 `
 
 export const Text = styled.p`

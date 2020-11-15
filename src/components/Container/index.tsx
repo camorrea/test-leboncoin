@@ -1,5 +1,6 @@
 import {
   StyledContainer,
+  StyledContent,
   StyledInfoContainer,
   StyledError,
   StyledLoader,
@@ -7,6 +8,7 @@ import {
 } from './styles'
 
 export const Container = StyledContainer
+export const Content = StyledContent
 export const Wrapper = StyledWrapper
 export const InfoContainer = StyledInfoContainer
 export const Loader = StyledLoader

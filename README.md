@@ -3,7 +3,11 @@
 test-leboncoin is a simple messaging react app
 
 `json-server` : fake API
-`styled-components` : for css
+
+`axios` : to ease API calls
+
+`styled-components` : for CSS
+
 `jest` : snapshot testing
 
 ## Install

@@ -30,7 +30,7 @@ const Toggle = (props: Props) => {
 
   return (
     <Container>
-      <HiddenLabel for={id}>{label}</HiddenLabel>
+      <HiddenLabel htmlFor={id}>{label}</HiddenLabel>
       <Background checked={checked} disabled={disabled}>
         <Switch checked={checked} disabled={disabled} />
       </Background>

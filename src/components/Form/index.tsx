@@ -33,7 +33,7 @@ const Form = ({ postMessage }: { postMessage: any }) => {
   return (
     <Container onSubmit={handlePostMessage}>
       <Title>Post message</Title>
-      <HiddenLabel for="messageField">Write your message here</HiddenLabel>
+      <HiddenLabel htmlFor="messageField">Write your message here</HiddenLabel>
       <Input
         type="text"
         autoFocus={true}

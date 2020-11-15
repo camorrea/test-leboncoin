@@ -59,14 +59,14 @@ const App = () => {
         setDataStatus(DataStatus.success)
       } catch (err) {
         setDataStatus(DataStatus.failure)
-        console.error('Unable to reach API')
+        console.error('Unable to get messages')
       }
     }
 
     fetchData()
   }, [])
 
-  const postMessage = (text: string, isPrivate: boolean) => {
+  const postMessage = async (text: string, isPrivate: boolean) => {
     const messageToPost: MessageType = {
       id: Math.random().toString(36).substring(7),
       text,
@@ -76,10 +76,18 @@ const App = () => {
       user: User.me
     }
 
-    messages.push(messageToPost)
-
-    setMessages(messages)
-    setHasUnreadMessage(true)
+    try {
+      const result = await axios.post(
+        'http://localhost:3001/messages',
+        messageToPost
+      )
+      await messages.push(result.data)
+      setMessages(messages)
+      setHasUnreadMessage(true)
+    } catch (err) {
+      setDataStatus(DataStatus.failure)
+      console.error('Unable to post message')
+    }
   }
 
   const renderList = () => {

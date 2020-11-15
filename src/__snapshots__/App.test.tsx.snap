@@ -8,7 +8,7 @@ exports[`renders correctly 1`] = `
     className="sc-gsTCUz gTaKgZ"
   >
     <div
-      className="sc-fFubgz iFtySD"
+      className="sc-bkzZxe bKogmd"
     >
       <div
         className="sc-dlfnbm VafFv"
@@ -37,56 +37,73 @@ exports[`renders correctly 1`] = `
       </div>
     </div>
     <form
-      className="sc-iqHYGH ggcyAg"
+      className="sc-gKsewC eUflmg"
       onSubmit={[Function]}
     >
       <h1
-        className="sc-dQppl jwvHkp"
+        className="sc-fubCfw dErUKn"
       >
         Post message
       </h1>
+      <label
+        className="sc-pFZIQ hnyVIS"
+        htmlFor="messageField"
+      >
+        Write your message here
+      </label>
       <input
+        autoComplete="off"
         autoFocus={true}
         className="sc-jSgupP bwCYyh"
         disabled={false}
+        id="messageField"
         name="message"
         onChange={[Function]}
         placeholder="Write your message here"
+        type="text"
         value=""
       />
       <div
-        className="sc-crrsfI dmiAcN"
+        className="sc-iBPRYJ eBvofg"
       >
         <div
-          className="sc-gKsewC jmlHni"
+          className="sc-jrAGrp iSvhwg"
         >
           <div
-            className="sc-fubCfw caNQDg"
+            className="sc-iqHYGH lfEyGp"
           >
+            <label
+              className="sc-pFZIQ hnyVIS"
+              htmlFor="isPrivate"
+            >
+              Private
+            </label>
             <div
               checked={false}
-              className="sc-pFZIQ fcZdPu"
+              className="sc-crrsfI fosgUB"
             >
               <div
                 checked={false}
-                className="sc-jrAGrp imKRAw"
+                className="sc-dQppl jDNUGR"
               />
             </div>
             <input
               checked={false}
-              className="sc-kEjbxe hXwaRS"
+              className="sc-bqyKva BvFhj"
+              id="isPrivate"
               onChange={[Function]}
               type="checkbox"
             />
           </div>
           <div
-            className="sc-iBPRYJ JXzPi"
+            className="sc-kEjbxe griEtr"
           >
             Private
           </div>
         </div>
         <button
-          className="sc-eCssSg gkPmpB"
+          className="sc-eCssSg dSgXHa"
+          disabled={true}
           onClick={[Function]}
         >
           Send

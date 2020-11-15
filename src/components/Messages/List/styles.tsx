@@ -7,6 +7,11 @@ export const ListWrapper = styled.div`
   box-shadow: 0 -5px 5px rgba(182, 182, 182, 0.25) inset;
 `
 
+export const TitleContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+`
+
 export const Title = styled.h1`
   margin-bottom: 0.85rem;
   font-weight: bold;

@@ -1,10 +1,17 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { createGlobalStyle } from 'styled-components'
-import { Container, Wrapper } from './components/Container'
+import { Confidentiality, DataStatus, MessageType, User } from './types'
+import {
+  Container,
+  Error,
+  InfoContainer,
+  Loader,
+  Wrapper
+} from './components/Container'
 import Form from './components/Form'
 import List from './components/Messages/List'
-import { Confidentiality, MessageType } from './types'
+import { ListWrapper } from './components/Messages/List/styles'
 
 const GlobalStyle = createGlobalStyle`
   *, *:after, *:before {
@@ -40,12 +47,20 @@ const GlobalStyle = createGlobalStyle`
 
 const App = () => {
   const [messages, setMessages] = useState<MessageType[]>([])
-  const [hasUnreadMessage, setHasUnreadMessage] = useState(false)
+  const [hasUnreadMessage, setHasUnreadMessage] = useState<boolean>(false)
+  const [dataStatus, setDataStatus] = useState<DataStatus>(DataStatus.notAsked)
 
   useEffect(() => {
     const fetchData = async () => {
-      const result = await axios('http://localhost:3001/messages')
-      setMessages(result.data)
+      setDataStatus(DataStatus.loading)
+      try {
+        const result = await axios('http://localhost:3001/messages')
+        await setMessages(result.data)
+        setDataStatus(DataStatus.success)
+      } catch (err) {
+        setDataStatus(DataStatus.failure)
+        console.error('Unable to reach API')
+      }
     }
 
     fetchData()
@@ -57,7 +72,8 @@ const App = () => {
       text,
       confidentiality: isPrivate
         ? Confidentiality.private
-        : Confidentiality.public
+        : Confidentiality.public,
+      user: User.me
     }
 
     messages.push(messageToPost)
@@ -66,16 +82,42 @@ const App = () => {
     setHasUnreadMessage(true)
   }
 
-  return (
-    <React.Fragment>
-      <GlobalStyle />
-      <Wrapper>
-        <Container>
+  const renderList = () => {
+    switch (dataStatus) {
+      case DataStatus.failure:
+        return (
+          <InfoContainer>
+            <Error>
+              Error 😩
+              <br /> Please try again
+            </Error>
+          </InfoContainer>
+        )
+      case DataStatus.success:
+        return (
           <List
             hasUnreadMessage={hasUnreadMessage}
             setHasUnreadMessage={setHasUnreadMessage}
             messages={messages}
           />
+        )
+      case DataStatus.loading:
+      case DataStatus.notAsked:
+      default:
+        return (
+          <InfoContainer>
+            <Loader />
+          </InfoContainer>
+        )
+    }
+  }
+
+  return (
+    <React.Fragment>
+      <GlobalStyle />
+      <Wrapper>
+        <Container>
+          <ListWrapper>{renderList()}</ListWrapper>
           <Form postMessage={postMessage} />
         </Container>
       </Wrapper>

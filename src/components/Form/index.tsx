@@ -7,8 +7,8 @@ import { ActionsContainer, Container, Title } from './styles'
 
 const Form = ({ postMessage }: { postMessage: any }) => {
   const postMessageInput = useRef<HTMLInputElement>()
-  const [message, setMessage] = useState('')
-  const [isPrivate, setIsPrivate] = useState(false)
+  const [message, setMessage] = useState<string>('')
+  const [isPrivate, setIsPrivate] = useState<boolean>(false)
 
   const handleSetMessage = useCallback(
     (event) => {

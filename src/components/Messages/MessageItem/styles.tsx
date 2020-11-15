@@ -1,6 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Confidentiality } from '../../../types'
+import { Confidentiality, User } from '../../../types'
+
+export const Wrapper = styled.div<{ user: User }>`
+  display: flex;
+  align-items: flex-start;
+  justify-content: ${({ user }) =>
+    user === User.me ? 'flex-end' : 'flex-start'};
+`
 
 export const Container = styled.div<{ confidentiality: Confidentiality }>`
   display: flex;

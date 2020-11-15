@@ -1,8 +1,10 @@
 import styled from 'styled-components'
 
-export const Container = styled.div`
+export const ListWrapper = styled.div`
+  flex-grow: 2;
   overflow: scroll;
   padding: 0.85rem;
+  box-shadow: 0 -5px 5px rgba(182, 182, 182, 0.25) inset;
 `
 
 export const Title = styled.h1`

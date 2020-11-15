@@ -1,0 +1,98 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="sc-bdfBwQ gVoctG"
+>
+  <div
+    className="sc-gsTCUz gTaKgZ"
+  >
+    <div
+      className="sc-fFubgz iFtySD"
+    >
+      <div
+        className="sc-dlfnbm VafFv"
+      >
+        <svg
+          height="34px"
+          preserveAspectRatio="xMidYMid"
+          viewBox="0 0 100 100"
+          width="34px"
+        >
+          <path
+            d="M10 50A40 40 0 0 0 90 50A40 46.5 0 0 1 10 50"
+            fill="#109ad7"
+            stroke="none"
+          >
+            <animateTransform
+              attributeName="transform"
+              dur="1s"
+              keyTimes="0;1"
+              repeatCount="indefinite"
+              type="rotate"
+              values="0 50 53.25;360 50 53.25"
+            />
+          </path>
+        </svg>
+      </div>
+    </div>
+    <form
+      className="sc-iqHYGH ggcyAg"
+      onSubmit={[Function]}
+    >
+      <h1
+        className="sc-dQppl jwvHkp"
+      >
+        Post message
+      </h1>
+      <input
+        autoFocus={true}
+        className="sc-jSgupP bwCYyh"
+        disabled={false}
+        name="message"
+        onChange={[Function]}
+        placeholder="Write your message here"
+        value=""
+      />
+      <div
+        className="sc-crrsfI dmiAcN"
+      >
+        <div
+          className="sc-gKsewC jmlHni"
+        >
+          <div
+            className="sc-fubCfw caNQDg"
+          >
+            <div
+              checked={false}
+              className="sc-pFZIQ fcZdPu"
+            >
+              <div
+                checked={false}
+                className="sc-jrAGrp imKRAw"
+              />
+            </div>
+            <input
+              checked={false}
+              className="sc-kEjbxe hXwaRS"
+              onChange={[Function]}
+              type="checkbox"
+            />
+          </div>
+          <div
+            className="sc-iBPRYJ JXzPi"
+          >
+            Private
+          </div>
+        </div>
+        <button
+          className="sc-eCssSg gkPmpB"
+          onClick={[Function]}
+        >
+          Send
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+`;

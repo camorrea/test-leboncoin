@@ -3,7 +3,7 @@ import React, { useLayoutEffect, useRef } from 'react'
 import { MessageType } from '../../../types'
 import MessageItem from '../MessageItem'
 
-import { Container, Title } from './styles'
+import { Title } from './styles'
 
 type Props = {
   messages: MessageType[]
@@ -29,13 +29,13 @@ const List = ({ hasUnreadMessage, messages, setHasUnreadMessage }: Props) => {
   }, [hasUnreadMessage, setHasUnreadMessage])
 
   return (
-    <Container>
+    <React.Fragment>
       <Title>{messages.length} messages</Title>
       {messages.map((message: MessageType) => (
         <MessageItem key={message.id} message={message} />
       ))}
       <div ref={bottomRef}></div>
-    </Container>
+    </React.Fragment>
   )
 }
 

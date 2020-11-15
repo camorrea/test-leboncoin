@@ -35,6 +35,7 @@ const Form = ({ postMessage }: { postMessage: any }) => {
       <Title>Post message</Title>
       <Input
         autoFocus={true}
+        autoComplete="off"
         ref={postMessageInput}
         disabled={false}
         name="message"

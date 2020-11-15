@@ -4,6 +4,7 @@ import { createGlobalStyle } from 'styled-components'
 import { Confidentiality, DataStatus, MessageType, User } from './types'
 import {
   Container,
+  Content,
   Error,
   InfoContainer,
   Loader,
@@ -12,6 +13,7 @@ import {
 import Form from './components/Form'
 import List from './components/Messages/List'
 import { ListWrapper } from './components/Messages/List/styles'
+import Header from './components/Header'
 
 const GlobalStyle = createGlobalStyle`
   *, *:after, *:before {
@@ -124,10 +126,11 @@ const App = () => {
   }
 
   return (
-    <React.Fragment>
+    <Wrapper>
       <GlobalStyle />
-      <Wrapper>
-        <Container>
+      <Header />
+      <Container>
+        <Content>
           <ListWrapper>
             {renderList()}
             {postStatus === DataStatus.failure && (
@@ -135,9 +138,9 @@ const App = () => {
             )}
           </ListWrapper>
           <Form postMessage={postMessage} />
-        </Container>
-      </Wrapper>
-    </React.Fragment>
+        </Content>
+      </Container>
+    </Wrapper>
   )
 }
 

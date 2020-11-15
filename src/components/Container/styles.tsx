@@ -2,21 +2,35 @@ import React from 'react'
 import styled from 'styled-components'
 
 export const StyledWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
   width: 100vw;
   height: 100vh;
+
+  @media screen and (min-width: 640px) {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 100% 100%;
+  }
 `
 
 export const StyledContainer = styled.div`
   display: flex;
+  justify-content: center;
+  align-items: center;
+`
+
+export const StyledContent = styled.div`
+  display: flex;
   flex-direction: column;
   width: 90vh;
   max-width: 25rem;
-  height: 95vh;
-  margin: 0 1rem;
+  height: calc(95vh - 5rem);
+  margin: 1rem;
   box-shadow: 0px 0px 10px 0px #dddddd;
+
+  @media screen and (min-width: 640px) {
+    height: 95vh;
+    margin: 0 1rem;
+  }
 `
 
 export const StyledInfoContainer = styled.div`

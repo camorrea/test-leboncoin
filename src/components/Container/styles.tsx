@@ -14,7 +14,8 @@ export const StyledContainer = styled.div`
   flex-direction: column;
   width: 90vh;
   max-width: 25rem;
-  height: 90vh;
+  height: 95vh;
+  margin: 0 1rem;
   box-shadow: 0px 0px 10px 0px #dddddd;
 `
 

@@ -87,25 +87,7 @@
     {
       "id": "c79f4b0f-7b23-61e8-819b-00001cae15fa",
       "text": "Ut enim ad minima veniam !",
-      "confidentiality": "Public",
-      "user": "Anonymous"
-    },
-    {
-      "id": "tm7439",
-      "text": "Not sure about the design",
-      "confidentiality": "Public",
-      "user": "Me"
-    },
-    {
-      "id": "ttuei",
-      "text": "But keep it for you !",
       "confidentiality": "Private",
-      "user": "Me"
-    },
-    {
-      "id": "wxdz1",
-      "text": "NO. ?",
-      "confidentiality": "Public",
       "user": "Me"
     }
   ]

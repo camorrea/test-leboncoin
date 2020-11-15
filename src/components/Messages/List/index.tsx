@@ -46,6 +46,8 @@ const List = ({ hasUnreadMessage, messages, setHasUnreadMessage }: Props) => {
           <Toggle
             checked={hasPrivateFilter}
             onChange={handleToggleFilterPrivate}
+            id="toggleFilter"
+            label="Hide private"
           />
           <ToggleLabel>Hide private</ToggleLabel>
         </ToggleContainer>

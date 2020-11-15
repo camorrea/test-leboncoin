@@ -19,7 +19,7 @@ export const Container = styled.div<{ confidentiality: Confidentiality }>`
   width: 85%;
   border-radius: 0.6rem;
   background-color: ${({ confidentiality }) =>
-    confidentiality === Confidentiality.private ? '#444444' : '#4088FF'};
+    confidentiality === Confidentiality.private ? '#444444' : '#0060FF'};
   color: #ffffff;
 `
 

@@ -17,3 +17,15 @@ export const Title = styled.h1`
   line-height: 1rem;
   color: #333333;
 `
+
+export const HiddenLabel = styled.label`
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 0px;
+  height: 0px;
+  margin: 0;
+  opacity: 0;
+`

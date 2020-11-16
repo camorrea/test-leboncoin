@@ -14,7 +14,7 @@ import { ArrowIcon, ScrollDown, Title, TitleContainer } from './styles'
 type Props = {
   messages: MessageType[]
   hasUnreadMessage: boolean
-  setHasUnreadMessage: (boolean) => void
+  setHasUnreadMessage: (hasUnreadMessage: boolean) => void
 }
 
 const List = ({ hasUnreadMessage, messages, setHasUnreadMessage }: Props) => {
@@ -57,12 +57,17 @@ const List = ({ hasUnreadMessage, messages, setHasUnreadMessage }: Props) => {
             onChange={handleToggleFilterPrivate}
             id="toggleFilter"
             label="Hide private"
+            data-test="hidePrivateToggle"
           />
           <ToggleLabel>Hide private</ToggleLabel>
         </ToggleContainer>
       </TitleContainer>
       {filteredMessagesList.map((message: MessageType) => (
-        <MessageItem key={message.id} message={message} />
+        <MessageItem
+          key={message.id}
+          message={message}
+          data-test="messageItem"
+        />
       ))}
       <div ref={bottomRef} />
       <ScrollDown onClick={() => scrollToBottom()}>

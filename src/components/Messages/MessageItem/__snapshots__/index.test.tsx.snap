@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MessageItem Component should render properly 1`] = `
+<div
+  className="sc-bdfBwQ blNLYb"
+>
+  <div
+    className="sc-gsTCUz feHatn"
+  >
+    <p
+      className="sc-dlfnbm ePHJPa"
+    >
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit
+    </p>
+  </div>
+</div>
+`;

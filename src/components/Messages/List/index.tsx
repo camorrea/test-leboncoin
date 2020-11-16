@@ -5,9 +5,10 @@ import React, {
   useRef,
   useState
 } from 'react'
+
 import { Confidentiality, MessageType } from '../../../types'
-import MessageItem from '../MessageItem'
 import Toggle, { ToggleContainer, ToggleLabel } from '../../Form/Toggle'
+import MessageItem from '../MessageItem'
 import { ArrowIcon, ScrollDown, Title, TitleContainer } from './styles'
 
 type Props = {
@@ -63,7 +64,7 @@ const List = ({ hasUnreadMessage, messages, setHasUnreadMessage }: Props) => {
       {filteredMessagesList.map((message: MessageType) => (
         <MessageItem key={message.id} message={message} />
       ))}
-      <div ref={bottomRef}></div>
+      <div ref={bottomRef} />
       <ScrollDown onClick={() => scrollToBottom()}>
         <ArrowIcon />
       </ScrollDown>

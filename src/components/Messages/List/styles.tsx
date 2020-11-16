@@ -36,7 +36,7 @@ export const ScrollDown = styled.div`
   cursor: pointer;
   transition: all ease 300ms;
 
-  @media screen and (min-width: 640px) {
+  @media screen and (min-width: 768px) {
     position: fixed;
     right: 3rem;
     top: 80%;

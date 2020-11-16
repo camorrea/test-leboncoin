@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const StyledInput = styled.input<{ ref: any }>`
+export const Input = styled.input<{ ref: any }>`
   width: 100%;
   margin-bottom: 0.85rem;
   padding: 0.5rem;

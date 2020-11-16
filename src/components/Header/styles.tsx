@@ -9,7 +9,7 @@ export const Container = styled.div`
   height: 5rem;
   background-color: #f4f608;
 
-  @media screen and (min-width: 640px) {
+  @media screen and (min-width: 768px) {
     height: 100vh;
   }
 `
@@ -21,7 +21,7 @@ export const Content = styled.div`
   width: 100%;
   max-width: 35rem;
 
-  @media screen and (min-width: 640px) {
+  @media screen and (min-width: 768px) {
     flex-direction: column;
     align-items: flex-start;
     padding: 2.5rem;
@@ -36,7 +36,7 @@ export const Logo = styled.div`
     transform: scale(0.6);
   }
 
-  @media screen and (min-width: 640px) {
+  @media screen and (min-width: 768px) {
     margin-bottom: 2rem;
     padding-right: 1rem;
 

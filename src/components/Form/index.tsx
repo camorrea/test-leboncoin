@@ -1,15 +1,16 @@
 import React, { useCallback, useState } from 'react'
+
 import { Confidentiality } from '../../types'
-import { Button } from './Button'
-import Input from './Input'
-import Toggle, { ToggleContainer, ToggleLabel } from './Toggle'
+import { Button } from './Button/styles'
+import { Input } from './Input/styles'
 import { ActionsContainer, Container, HiddenLabel, Title } from './styles'
+import Toggle, { ToggleContainer, ToggleLabel } from './Toggle'
 
 type Props = {
-  postMessage: (message: string, isPrivate: boolean) => Promise<void>
+  onSubmit: (message: string, isPrivate: boolean) => Promise<void>
 }
 
-const Form = ({ postMessage }: Props) => {
+const Form = ({ onSubmit }: Props) => {
   const [message, setMessage] = useState<string>('')
   const [isPrivate, setIsPrivate] = useState<boolean>(false)
 
@@ -27,10 +28,10 @@ const Form = ({ postMessage }: Props) => {
   const handlePostMessage = useCallback(
     (event: React.MouseEvent<HTMLButtonElement>) => {
       event.preventDefault()
-      postMessage(message, isPrivate)
+      onSubmit(message, isPrivate)
       setMessage('')
     },
-    [message, isPrivate, postMessage]
+    [message, isPrivate, onSubmit]
   )
 
   return (

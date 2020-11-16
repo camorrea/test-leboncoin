@@ -116,6 +116,7 @@ exports[`renders correctly 1`] = `
           autoComplete="off"
           autoFocus={true}
           className="sc-fubCfw bMdzSp"
+          data-test="messageInput"
           disabled={false}
           id="messageField"
           name="message"
@@ -164,6 +165,7 @@ exports[`renders correctly 1`] = `
           </div>
           <button
             className="sc-iBPRYJ keETAQ"
+            data-test="submitButton"
             disabled={true}
             onClick={[Function]}
           >

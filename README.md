@@ -8,7 +8,7 @@ test-leboncoin is a simple, responsive (mobile first) and accessible messaging r
 
 `styled-components` : for CSS
 
-`jest` : snapshot testing
+`jest` : unit tests
 
 ## Install
 

@@ -25,14 +25,10 @@ const Form = ({ onSubmit }: Props) => {
     setIsPrivate(!isPrivate)
   }, [isPrivate])
 
-  const handlePostMessage = useCallback(
-    (event: React.MouseEvent<HTMLButtonElement>) => {
-      event.preventDefault()
-      onSubmit(message, isPrivate)
-      setMessage('')
-    },
-    [message, isPrivate, onSubmit]
-  )
+  const handlePostMessage = useCallback(() => {
+    onSubmit(message, isPrivate)
+    setMessage('')
+  }, [message, isPrivate, onSubmit])
 
   return (
     <Container onSubmit={handlePostMessage}>
@@ -48,6 +44,7 @@ const Form = ({ onSubmit }: Props) => {
         value={message}
         onChange={handleSetMessage}
         id="messageField"
+        data-test="messageInput"
       />
       <ActionsContainer>
         <ToggleContainer>
@@ -56,10 +53,15 @@ const Form = ({ onSubmit }: Props) => {
             onChange={handleToggleConfidentiality}
             id="isPrivate"
             label={Confidentiality.private}
+            data-test="confidentialityToggle"
           />
           <ToggleLabel>{Confidentiality.private}</ToggleLabel>
         </ToggleContainer>
-        <Button onClick={handlePostMessage} disabled={message === ''}>
+        <Button
+          onClick={handlePostMessage}
+          disabled={message === ''}
+          data-test="submitButton"
+        >
           Send
         </Button>
       </ActionsContainer>

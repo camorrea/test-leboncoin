@@ -2,16 +2,16 @@
 
 exports[`renders correctly 1`] = `
 <div
-  className="sc-bdfBwQ iSBPZa"
+  className="sc-bdfBwQ Qjzmh"
 >
   <div
-    className="sc-kfzAmx kuTYYp"
+    className="sc-fFubgz jjWzBP"
   >
     <div
-      className="sc-fKFyDc bkMdjP"
+      className="sc-bkzZxe byIjtB"
     >
       <div
-        className="sc-bBXqnf bhJFCM"
+        className="sc-idOhPF iOoKxe"
       >
         <svg
           height="110px"
@@ -39,12 +39,12 @@ exports[`renders correctly 1`] = `
         </svg>
       </div>
       <h1
-        className="sc-iwyYcG duPwxj"
+        className="sc-dIUggk ktJLuC"
       >
         Secret Messenger
       </h1>
       <h2
-        className="sc-cxFLnm hNuwfN"
+        className="sc-hHftDr dsIuJH"
       >
         <strong>
           Secret messenger
@@ -66,10 +66,10 @@ exports[`renders correctly 1`] = `
     className="sc-gsTCUz Edwuc"
   >
     <div
-      className="sc-dlfnbm crLESQ"
+      className="sc-dlfnbm gjDzYz"
     >
       <div
-        className="sc-idOhPF gBGlvN"
+        className="sc-iwyYcG ctIrgv"
       >
         <div
           className="sc-hKgILt iULdMd"
@@ -98,16 +98,16 @@ exports[`renders correctly 1`] = `
         </div>
       </div>
       <form
-        className="sc-iBPRYJ cMNcMA"
+        className="sc-pFZIQ celwem"
         onSubmit={[Function]}
       >
         <h1
-          className="sc-pFZIQ kkDdxU"
+          className="sc-kEjbxe yQMXX"
         >
           Post message
         </h1>
         <label
-          className="sc-jrAGrp kyhqhG"
+          className="sc-iqHYGH bKJICM"
           htmlFor="messageField"
         >
           Write your message here
@@ -115,7 +115,7 @@ exports[`renders correctly 1`] = `
         <input
           autoComplete="off"
           autoFocus={true}
-          className="sc-gKsewC cajREA"
+          className="sc-fubCfw bMdzSp"
           disabled={false}
           id="messageField"
           name="message"
@@ -125,45 +125,45 @@ exports[`renders correctly 1`] = `
           value=""
         />
         <div
-          className="sc-fubCfw gJZojF"
+          className="sc-jrAGrp kXpyIe"
         >
           <div
-            className="sc-kEjbxe fyZMWj"
+            className="sc-crrsfI hiXqPz"
           >
             <div
-              className="sc-crrsfI fMJEfs"
+              className="sc-bqyKva hAntkN"
             >
               <label
-                className="sc-jrAGrp kyhqhG"
+                className="sc-iqHYGH bKJICM"
                 htmlFor="isPrivate"
               >
                 Private
               </label>
               <div
                 checked={false}
-                className="sc-dQppl cDLGZz"
+                className="sc-kstrdz dTVVpq"
               >
                 <div
                   checked={false}
-                  className="sc-bqyKva aiRdy"
+                  className="sc-hBEYos elrGfu"
                 />
               </div>
               <input
                 checked={false}
-                className="sc-kstrdz vRpol"
+                className="sc-fodVxV RmvIU"
                 id="isPrivate"
                 onChange={[Function]}
                 type="checkbox"
               />
             </div>
             <div
-              className="sc-iqHYGH feoxWG"
+              className="sc-dQppl hpBkTR"
             >
               Private
             </div>
           </div>
           <button
-            className="sc-jSgupP hicajF"
+            className="sc-iBPRYJ keETAQ"
             disabled={true}
             onClick={[Function]}
           >

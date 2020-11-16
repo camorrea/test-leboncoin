@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+
 import { Confidentiality, User } from '../../../types'
 
 export const Container = styled.div<{ user: User }>`

@@ -1,4 +1,5 @@
 import React from 'react'
+
 import { Container, Content, Logo, LogoIcon, Subtitle, Title } from './styles'
 
 const Header = () => {

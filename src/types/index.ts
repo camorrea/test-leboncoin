@@ -16,8 +16,8 @@ export enum User {
 }
 
 export type MessageType = {
-  id: string,
-  text: string,
-  confidentiality: Confidentiality,
+  id: string
+  text: string
+  confidentiality: Confidentiality
   user: User
 }

@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+import React, { useEffect, useState } from 'react'
+import uuid from 'react-uuid'
 import { createGlobalStyle } from 'styled-components'
-import { Confidentiality, DataStatus, MessageType, User } from './types'
+
 import {
   Container,
   Content,
@@ -9,11 +10,13 @@ import {
   InfoContainer,
   Loader,
   Wrapper
-} from './components/Container'
+} from './components/Container/styles'
+import ErrorBoundary from './components/ErrorBoundary'
 import Form from './components/Form'
+import Header from './components/Header'
 import List from './components/Messages/List'
 import { ListWrapper } from './components/Messages/List/styles'
-import Header from './components/Header'
+import { Confidentiality, DataStatus, MessageType, User } from './types'
 
 const GlobalStyle = createGlobalStyle`
   *, *:after, *:before {
@@ -53,25 +56,21 @@ const App = () => {
   const [dataStatus, setDataStatus] = useState<DataStatus>(DataStatus.notAsked)
   const [postStatus, setPostStatus] = useState<DataStatus>(DataStatus.notAsked)
 
-  useEffect(() => {
-    const fetchData = async () => {
-      setDataStatus(DataStatus.loading)
-      try {
-        const result = await axios('http://localhost:3001/messages')
-        setMessages(result.data)
-        setDataStatus(DataStatus.success)
-      } catch (err) {
-        setDataStatus(DataStatus.failure)
-        console.error('Unable to get messages')
-      }
+  const fetchData = async () => {
+    setDataStatus(DataStatus.loading)
+    try {
+      const result = await axios('http://localhost:3001/messages')
+      setMessages(result.data)
+      setDataStatus(DataStatus.success)
+    } catch (err) {
+      setDataStatus(DataStatus.failure)
+      console.error('Unable to get messages')
     }
-
-    fetchData()
-  }, [])
+  }
 
   const postMessage = async (text: string, isPrivate: boolean) => {
     const messageToPost: MessageType = {
-      id: Math.random().toString(36).substring(7),
+      id: uuid(),
       text,
       confidentiality: isPrivate
         ? Confidentiality.private
@@ -94,6 +93,10 @@ const App = () => {
       console.error('Unable to post message')
     }
   }
+
+  useEffect(() => {
+    fetchData()
+  }, [])
 
   const renderList = () => {
     switch (dataStatus) {
@@ -126,21 +129,23 @@ const App = () => {
   }
 
   return (
-    <Wrapper>
-      <GlobalStyle />
-      <Header />
-      <Container>
-        <Content>
-          <ListWrapper>
-            {renderList()}
-            {postStatus === DataStatus.failure && (
-              <Error>Error while posting message 😩</Error>
-            )}
-          </ListWrapper>
-          <Form postMessage={postMessage} />
-        </Content>
-      </Container>
-    </Wrapper>
+    <ErrorBoundary>
+      <Wrapper>
+        <GlobalStyle />
+        <Header />
+        <Container>
+          <Content>
+            <ListWrapper>
+              {renderList()}
+              {postStatus === DataStatus.failure && (
+                <Error>Error while posting message 😩</Error>
+              )}
+            </ListWrapper>
+            <Form onSubmit={postMessage} />
+          </Content>
+        </Container>
+      </Wrapper>
+    </ErrorBoundary>
   )
 }
 

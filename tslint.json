@@ -1,0 +1,38 @@
+{
+  "extends": [
+    "tslint:recommended",
+    "tslint-react",
+    "tslint-config-prettier"
+  ],
+  "rulesDirectory": [
+    "tslint-plugin-prettier"
+  ],
+  "rules": {
+    "prettier": true,
+    "interface-name": false,
+    "no-console": [true, "log"],
+    "ordered-imports": [
+      true,
+      {
+        "grouped-imports": true,
+        "groups": [
+          {
+            "name": "externals",
+            "match": "^(?!#)(?!\\.).*",
+            "order": 10
+          },
+          {
+            "name": "internals",
+            "match": "^#.*",
+            "order": 20
+          },
+          {
+            "name": "others",
+            "match": ".*",
+            "order": 30
+          }
+        ]
+      }
+    ]
+  }
+}

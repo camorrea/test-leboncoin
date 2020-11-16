@@ -1,4 +1,5 @@
 import React from 'react'
+
 import { Confidentiality, MessageType } from '../../../types'
 import { Container, Content, IconContainer, PrivateIcon, Text } from './styles'
 

@@ -1,11 +1,12 @@
 import React, { useCallback } from 'react'
+
 import { HiddenLabel } from '../styles'
 import {
   Background,
   Container,
   HiddenCheckbox,
-  StyledToggleLabel,
   StyledToggleContainer,
+  StyledToggleLabel,
   Switch
 } from './styles'
 
